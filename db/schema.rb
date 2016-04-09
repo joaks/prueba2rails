@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408234737) do
+ActiveRecord::Schema.define(version: 20160409001452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,11 +25,13 @@ ActiveRecord::Schema.define(version: 20160408234737) do
   end
 
   create_table "operations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "worker_id"
+    t.integer  "inventory_id"
   end
 
+  add_index "operations", ["inventory_id"], name: "index_operations_on_inventory_id", using: :btree
   add_index "operations", ["worker_id"], name: "index_operations_on_worker_id", using: :btree
 
   create_table "workers", force: :cascade do |t|
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160408234737) do
 
   add_index "workers", ["operation_id"], name: "index_workers_on_operation_id", using: :btree
 
+  add_foreign_key "operations", "inventories"
   add_foreign_key "operations", "workers"
   add_foreign_key "workers", "operations"
 end

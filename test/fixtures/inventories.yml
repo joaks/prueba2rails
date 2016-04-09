@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  sku: MyString
+rueda1:
+  sku: 123
   wheel_size: 1
-  description: MyText
+  description: esta es la rueda1
 
-two:
-  sku: MyString
-  wheel_size: 1
-  description: MyText
+rueda2:
+  sku: 
+  wheel_size: 2
+  description: esta es la rueda2
