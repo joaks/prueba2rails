@@ -5,7 +5,7 @@ class WorkerTest < ActiveSupport::TestCase
   #   assert true
   # end
   test "has_name" do 
-	x=workers(:one)
+	x=workers(:worker1)
 	if x.name.nil?
 		assert false, "Porfavor poner nombre del operador"
 	end
